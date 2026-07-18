@@ -6,6 +6,7 @@
 
   slides.forEach((slide, i) => {
     const dot = document.createElement('button');
+    dot.type = 'button';
     dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
     dot.addEventListener('click', () => slide.scrollIntoView());
     nav.appendChild(dot);

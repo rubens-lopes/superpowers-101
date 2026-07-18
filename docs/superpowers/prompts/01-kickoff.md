@@ -27,4 +27,4 @@ The brainstorming skill drove a Q&A (one question at a time). Decisions made:
 - **Repo:** new `<owner>/superpowers-101`.
 - **Artifact capture:** curated markdown with verbatim prompts (this file is the first).
 
-Produced [the design spec](../specs/2026-07-17-superpowers-presentation-design.md).
+Produced [the design spec](https://rubens-lopes.github.io/superpowers-101/process/specs/2026-07-17-superpowers-presentation-design/).

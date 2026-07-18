@@ -20,7 +20,7 @@ Structured answers given along the way (via option prompts):
 
 ## Outcome
 
-The writing-plans skill produced [the implementation plan](../plans/2026-07-17-superpowers-presentation.md) (6 tasks, complete code per task). Execution ran on branch `build-site` with a fresh implementer subagent per task and an independent reviewer subagent gating each one:
+The writing-plans skill produced [the implementation plan](https://rubens-lopes.github.io/superpowers-101/process/plans/2026-07-17-superpowers-presentation/) (6 tasks, complete code per task). Execution ran on branch `build-site` with a fresh implementer subagent per task and an independent reviewer subagent gating each one:
 
 - Task 1 `4b06d0e` scaffold — approved; reviewer flagged one thing it couldn't verify: whether `BASE_URL` gets a trailing slash.
 - Task 2 `959df73` slide framework — approved.
