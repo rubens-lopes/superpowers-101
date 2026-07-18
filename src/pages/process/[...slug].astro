@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const types = ['prompts', 'specs', 'plans'] as const;
+  const paths = [];
+  for (const type of types) {
+    const entries = await getCollection(type);
+    for (const entry of entries) {
+      paths.push({ params: { slug: `${type}/${entry.id}` }, props: { entry } });
+    }
+  }
+  return paths;
+}
+
+const base = import.meta.env.BASE_URL;
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+function titleFromId(id: string): string {
+  return id.replace(/\.md$/, '').replace(/[-_]/g, ' ');
+}
+---
+<Base title={`${titleFromId(entry.id)} · Superpowers 101`}>
+  <main style="max-width: 48rem; margin: 0 auto; padding: 3rem 1.5rem;">
+    <p><a href={`${base}process/`}>← all artifacts</a></p>
+    <article>
+      <Content />
+    </article>
+  </main>
+</Base>

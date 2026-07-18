@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL;
+
+function titleFromId(id: string): string {
+  return id.replace(/\.md$/, '').replace(/[-_]/g, ' ');
+}
+
+const sections = [
+  {
+    name: 'Prompts',
+    slug: 'prompts',
+    blurb: 'Every prompt the human typed, verbatim, with what came of it.',
+    entries: await getCollection('prompts'),
+  },
+  {
+    name: 'Specs',
+    slug: 'specs',
+    blurb: 'Design documents produced by the brainstorming skill.',
+    entries: await getCollection('specs'),
+  },
+  {
+    name: 'Plans',
+    slug: 'plans',
+    blurb: 'Implementation plans produced by the writing-plans skill.',
+    entries: await getCollection('plans'),
+  },
+];
+---
+<Base title="The making-of · Superpowers 101">
+  <main style="max-width: 60rem; margin: 0 auto; padding: 3rem 1.5rem;">
+    <p><a href={base}>← back to the deck</a></p>
+    <h1>The making-of</h1>
+    <p class="muted">
+      This site was built with the superpowers workflow:
+      <strong>brainstorm → spec → plan → implement</strong>.
+      These are the actual artifacts, committed as they were produced.
+    </p>
+    {sections.map((section) => (
+      <section>
+        <h2>{section.name}</h2>
+        <p class="muted">{section.blurb}</p>
+        <ul>
+          {section.entries.map((entry) => (
+            <li>
+              <a href={`${base}process/${section.slug}/${entry.id}/`}>{titleFromId(entry.id)}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </main>
+</Base>
