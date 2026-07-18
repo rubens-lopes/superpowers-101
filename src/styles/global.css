@@ -1,0 +1,119 @@
+:root {
+  --bg: #12121a;
+  --bg-accent: #1c1c2e;
+  --fg: #e8e8f0;
+  --muted: #9a9ab0;
+  --accent: #ffb454;
+  --accent-2: #7aa2f7;
+  --good: #9ece6a;
+  --bad: #f7768e;
+  --max-width: 60rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+.slide {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem clamp(1.5rem, 6vw, 6rem);
+}
+
+.slide > .slide-inner {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slide h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin: 0 0 1rem;
+  line-height: 1.1;
+}
+
+.slide h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin: 0 0 2rem;
+  color: var(--accent);
+}
+
+.slide ul {
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  padding-left: 1.4em;
+}
+
+.slide li {
+  margin-bottom: 0.6em;
+}
+
+.slide a {
+  color: var(--accent-2);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.kbd {
+  font-family: ui-monospace, monospace;
+  background: var(--bg-accent);
+  border: 1px solid #33334d;
+  border-radius: 6px;
+  padding: 0.1em 0.45em;
+  font-size: 0.85em;
+}
+
+.cols-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 40rem) {
+  .cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.slide-nav {
+  position: fixed;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  z-index: 10;
+}
+
+.slide-nav button {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  border: 1px solid var(--muted);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.slide-nav button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}

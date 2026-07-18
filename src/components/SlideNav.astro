@@ -1,0 +1,49 @@
+<nav class="slide-nav" aria-label="Slides"></nav>
+
+<script>
+  const nav = document.querySelector('.slide-nav')!;
+  const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
+
+  slides.forEach((slide, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => slide.scrollIntoView());
+    nav.appendChild(dot);
+  });
+
+  const dots = Array.from(nav.querySelectorAll('button'));
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const idx = slides.indexOf(entry.target as HTMLElement);
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+      }
+    },
+    { threshold: 0.6 },
+  );
+  slides.forEach((s) => observer.observe(s));
+
+  function currentIndex(): number {
+    const active = dots.findIndex((d) => d.classList.contains('active'));
+    return active === -1 ? 0 : active;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault();
+      slides[Math.min(currentIndex() + 1, slides.length - 1)].scrollIntoView();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      slides[Math.max(currentIndex() - 1, 0)].scrollIntoView();
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      slides[0].scrollIntoView();
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      slides[slides.length - 1].scrollIntoView();
+    }
+  });
+</script>

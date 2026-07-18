@@ -1,11 +1,14 @@
 ---
+import Base from '../layouts/Base.astro';
+import Slide from '../components/Slide.astro';
+import SlideNav from '../components/SlideNav.astro';
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Superpowers 101</title>
-  </head>
-  <body>
-    <h1>Superpowers 101</h1>
-  </body>
-</html>
+<Base title="Superpowers 101">
+  <Slide id="one">
+    <h1>Placeholder one</h1>
+  </Slide>
+  <Slide id="two">
+    <h1>Placeholder two</h1>
+  </Slide>
+  <SlideNav />
+</Base>
