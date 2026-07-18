@@ -2,13 +2,89 @@
 import Base from '../layouts/Base.astro';
 import Slide from '../components/Slide.astro';
 import SlideNav from '../components/SlideNav.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 <Base title="Superpowers 101">
-  <Slide id="one">
-    <h1>Placeholder one</h1>
+  <Slide id="title">
+    <h1>Superpowers <span class="muted">101</span></h1>
+    <p class="muted" style="font-size: clamp(1.1rem, 2.5vw, 1.6rem);">
+      A crash course in the <strong>superpowers</strong> plugin for Claude Code —
+      presented by a deck that superpowers built.
+    </p>
+    <p class="muted">
+      Navigate with <span class="kbd">←</span> <span class="kbd">→</span> ·
+      Sources, prompts &amp; plans: <a href={`${base}process/`}>the making-of</a>
+    </p>
   </Slide>
-  <Slide id="two">
-    <h1>Placeholder two</h1>
+
+  <Slide id="what-is-it">
+    <h2>1 · What is it?</h2>
+    <ul>
+      <li>A <strong>software-development methodology for coding agents</strong>, packaged as a plugin — for Claude Code, Codex, Cursor, OpenCode, and friends.</li>
+      <li>Built by <strong>Jesse Vincent</strong> (obra) — of Request Tracker and Keyboardio fame.</li>
+      <li>14 composable <strong>process skills</strong> plus bootstrap instructions that make the agent actually use them.</li>
+      <li>The point: the agent stops jumping straight into code — it brainstorms, writes a spec, plans, <em>then</em> implements.</li>
+    </ul>
+    <p class="muted">
+      Learn more: <a href="https://github.com/obra/superpowers">github.com/obra/superpowers</a> ·
+      Jesse's writeups at <a href="https://blog.fsck.com">blog.fsck.com</a> ·
+      install from the <a href="https://claude.com/plugins/superpowers">official plugin marketplace</a>
+    </p>
   </Slide>
+
+  <Slide id="whats-inside">
+    <h2>2 · What's inside?</h2>
+    <div class="cols-2">
+      <div>
+        <h3>The workflow</h3>
+        <ul>
+          <li><strong>brainstorming</strong> → design Q&amp;A, one question at a time, ends in a committed spec</li>
+          <li><strong>writing-plans</strong> → bite-sized tasks, "for an enthusiastic junior with no context"</li>
+          <li><strong>subagent-driven-development</strong> → fresh subagent per task, review between tasks</li>
+          <li><strong>verification-before-completion</strong> → evidence before claims</li>
+          <li><strong>finishing-a-development-branch</strong> → merge/PR/cleanup, deliberately</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The philosophy</h3>
+        <ul>
+          <li>Skills are <strong>mandatory process</strong>, not suggestions: "if a skill applies, you MUST use it"</li>
+          <li>Red/green <strong>TDD</strong>, YAGNI, DRY, frequent commits</li>
+          <li>Documents as artifacts: specs and plans live in the repo</li>
+          <li>Plus: systematic-debugging, code-review skills, git worktrees, parallel agents, and a skill for writing skills</li>
+        </ul>
+      </div>
+    </div>
+  </Slide>
+
+  <Slide id="good-and-bad">
+    <h2>3 · The Good and the Not&nbsp;So&nbsp;Good</h2>
+    <div class="cols-2">
+      <div>
+        <h3 style={`color: var(--good)`}>The Good</h3>
+        <ul>
+          <li class="muted"><em>Placeholder — the presenter's field notes land here.</em></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style={`color: var(--bad)`}>The Not So Good</h3>
+        <ul>
+          <li class="muted"><em>Placeholder — honest gripes coming soon.</em></li>
+        </ul>
+      </div>
+    </div>
+  </Slide>
+
+  <Slide id="hands-on">
+    <h2>4 · Hands on</h2>
+    <ul>
+      <li><strong>Live:</strong> let's add a small feature to <em>this deck</em> — full loop: brainstorm → spec → plan → implement.</li>
+      <li><strong>Already happened:</strong> everything you're looking at was built that way.</li>
+      <li>Browse <a href={`${base}process/`}>the making-of</a> — every prompt, spec, and plan behind this deck, verbatim.</li>
+    </ul>
+    <p class="muted">Repo: <code>github.com/rubens-lopes/superpowers-101</code></p>
+  </Slide>
+
   <SlideNav />
 </Base>
