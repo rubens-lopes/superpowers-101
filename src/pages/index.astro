@@ -58,26 +58,31 @@ const base = import.meta.env.BASE_URL;
     </div>
   </Slide>
 
-  <Slide id="good-and-bad">
-    <h2>3 · The Good and the Not&nbsp;So&nbsp;Good</h2>
-    <div class="cols-2">
-      <div>
-        <h3 style={`color: var(--good)`}>The Good</h3>
-        <ul>
-          <li class="muted"><em>Placeholder — the presenter's field notes land here.</em></li>
-        </ul>
-      </div>
-      <div>
-        <h3 style={`color: var(--bad)`}>The Not So Good</h3>
-        <ul>
-          <li class="muted"><em>Placeholder — honest gripes coming soon.</em></li>
-        </ul>
-      </div>
-    </div>
+  <Slide id="the-good">
+    <h2 style={`color: var(--good)`}>3 · The Good</h2>
+    <ul>
+      <li><strong>Kills the "jump straight to code" reflex</strong> — forces a spec and a plan before any implementation begins.</li>
+      <li><strong>Two-stage subagent review</strong> — every task is checked for spec compliance, then code quality, before moving on.</li>
+      <li><strong>Battle-tested &amp; official</strong> — 246k stars, MIT licensed, listed on Anthropic's own plugin marketplace.</li>
+      <li><strong>Real TDD enforcement</strong> — RED-GREEN-REFACTOR is mandatory; code written before its test gets deleted.</li>
+      <li><strong>Works across 10 harnesses</strong> — Claude Code, Codex, Cursor, Antigravity, Copilot CLI, Kimi, OpenCode, Pi, and more.</li>
+      <li><strong>Noticeably more correct output</strong> — real-world reports describe clearly more correct results than stock Claude Code.</li>
+    </ul>
+  </Slide>
+
+  <Slide id="the-not-so-good">
+    <h2 style={`color: var(--bad)`}>4 · The Not So Good</h2>
+    <ul>
+      <li><strong>Token / budget burn</strong> — some report it consuming a full Max-plan budget on straightforward tasks.</li>
+      <li><strong>Overkill for capable models</strong> — critics compare it to an elaborate <code class="kbd">.vimrc</code>; newer models plan reasonably well unprompted.</li>
+      <li><strong>Rigidity</strong> — pre-specified files &amp; plans can fight exploratory work, where the right approach is discovered mid-flight, not scripted upfront.</li>
+      <li><strong>Uneven skill writing quality</strong> — some reference docs are just repeated examples, with wording duplicated across sections.</li>
+      <li><strong>Inherits Claude Code's plan-mode friction</strong> — no middle ground between accepting a plan and discarding it to rewrite from scratch.</li>
+    </ul>
   </Slide>
 
   <Slide id="hands-on">
-    <h2>4 · Hands on</h2>
+    <h2>5 · Hands on</h2>
     <ul>
       <li><strong>Live:</strong> let's add a small feature to <em>this deck</em> — full loop: brainstorm → spec → plan → implement.</li>
       <li><strong>Already happened:</strong> everything you're looking at was built that way.</li>
